@@ -2,11 +2,11 @@
 /**
  * Display form field panel
  *
- * @var WPDF_FormField|string $field
- * @var WPDF_Form $form
+ * @var FRMK_FormField|string $field
+ * @var FRMK_Form $form
  * @var bool $active
  *
- * @package WPDF/Admin
+ * @package FRMK/Admin
  * @author James Collings
  * @created 12/10/2016
  */
@@ -17,13 +17,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $field_type = $field->get_type();
 ?>
-<div class="wpdf-panel wpdf-panel--white <?php echo true === $active ? 'wpdf-panel--active' : ''; ?>" data-field-type="<?php echo esc_attr( $field_type ); ?>">
-	<div class="wpdf-panel__header">
+<div class="frmk-panel frmk-panel--white <?php echo true === $active ? 'frmk-panel--active' : ''; ?>" data-field-type="<?php echo esc_attr( $field_type ); ?>">
+	<div class="frmk-panel__header">
 		<?php echo esc_html( ucfirst( $field_type ) ); ?>: <span class="name"><?php echo esc_html( $field->get_label() ); ?></span>
-		<a class="wpdf-tooltip wpdf-panel__delete wpdf-del-field" title="<?php echo esc_attr( WPDF()->text->get( 'fields.general.delete.help' ) ); ?>"><?php esc_html_e( 'Delete', 'wpdf' ); ?></a>
-		<a href="#" class="wpdf-panel__toggle wpdf-tooltip-blank" title="<?php echo esc_attr( WPDF()->text->get( 'fields.general.toggle.help' ) ); ?>"></a>
+		<a class="frmk-tooltip frmk-panel__delete frmk-del-field" title="<?php echo esc_attr( FRMK()->text->get( 'fields.general.delete.help' ) ); ?>"><?php esc_html_e( 'Delete', 'frmk' ); ?></a>
+		<a href="#" class="frmk-panel__toggle frmk-tooltip-blank" title="<?php echo esc_attr( FRMK()->text->get( 'fields.general.toggle.help' ) ); ?>"></a>
 	</div>
-	<div class="wpdf-panel__content">
+	<div class="frmk-panel__content">
 
 		<?php
 		// hidden fields.
@@ -34,32 +34,32 @@ $field_type = $field->get_type();
 		<?php
 		// general fields.
 		?>
-		<div class="wpdf-field-row">
-			<div class="wpdf-col wpdf-col__half">
-				<label for="" class="wpdf-label">
-					<?php echo esc_html( WPDF()->text->get( 'fields.general.label.label' ) ); ?>
-					<span class="wpdf-tooltip wpdf-tooltip__inline" title="<?php echo esc_attr( WPDF()->text->get( 'fields.general.label.help' ) ); ?>">?</span>
+		<div class="frmk-field-row">
+			<div class="frmk-col frmk-col__half">
+				<label for="" class="frmk-label">
+					<?php echo esc_html( FRMK()->text->get( 'fields.general.label.label' ) ); ?>
+					<span class="frmk-tooltip frmk-tooltip__inline" title="<?php echo esc_attr( FRMK()->text->get( 'fields.general.label.help' ) ); ?>">?</span>
 				</label>
 
-				<input type="text" class="wpdf-input wpdf-input--label wpdf-input__required" name="field[][label]" value="<?php echo esc_attr( $field->get_label() ); ?>">
+				<input type="text" class="frmk-input frmk-input--label frmk-input__required" name="field[][label]" value="<?php echo esc_attr( $field->get_label() ); ?>">
 			</div>
-			<div class="wpdf-col wpdf-col__half">
-				<label for="" class="wpdf-label">
-					<?php echo esc_html( WPDF()->text->get( 'fields.general.placeholder.label' ) ); ?>
-					<span class="wpdf-tooltip wpdf-tooltip__inline" title="<?php echo esc_attr( WPDF()->text->get( 'fields.general.placeholder.help' ) ); ?>">?</span>
+			<div class="frmk-col frmk-col__half">
+				<label for="" class="frmk-label">
+					<?php echo esc_html( FRMK()->text->get( 'fields.general.placeholder.label' ) ); ?>
+					<span class="frmk-tooltip frmk-tooltip__inline" title="<?php echo esc_attr( FRMK()->text->get( 'fields.general.placeholder.help' ) ); ?>">?</span>
 				</label>
-				<input type="text" class="wpdf-input" name="field[][placeholder]" value="<?php echo esc_attr( $field->get_placeholder() ); ?>">
+				<input type="text" class="frmk-input" name="field[][placeholder]" value="<?php echo esc_attr( $field->get_placeholder() ); ?>">
 			</div>
 		</div>
 
-		<div class="wpdf-field-row">
-			<div class="wpdf-col wpdf-col__half">
-				<label for="" class="wpdf-label">
-					<?php echo esc_html( WPDF()->text->get( 'fields.general.css_classes.label' ) ); ?>
-					<span class="wpdf-tooltip wpdf-tooltip__inline" title="<?php echo esc_attr( WPDF()->text->get( 'fields.general.css_classes.help' ) ); ?>">?</span>
+		<div class="frmk-field-row">
+			<div class="frmk-col frmk-col__half">
+				<label for="" class="frmk-label">
+					<?php echo esc_html( FRMK()->text->get( 'fields.general.css_classes.label' ) ); ?>
+					<span class="frmk-tooltip frmk-tooltip__inline" title="<?php echo esc_attr( FRMK()->text->get( 'fields.general.css_classes.help' ) ); ?>">?</span>
 				</label>
 
-				<input type="text" class="wpdf-input" name="field[][css_class]" value="<?php echo esc_attr( $field->get_extra_classes() ); ?>">
+				<input type="text" class="frmk-input" name="field[][css_class]" value="<?php echo esc_attr( $field->get_extra_classes() ); ?>">
 			</div>
 		</div>
 
@@ -69,14 +69,14 @@ $field_type = $field->get_type();
 
 		// validation fields.
 		?>
-		<div class="wpdf-clear"></div>
-		<div class="wpdf-repeater wpdf-validation-repeater" data-min="0" data-template-name="validation_repeater">
+		<div class="frmk-clear"></div>
+		<div class="frmk-repeater frmk-validation-repeater" data-min="0" data-template-name="validation_repeater">
 			<div class="field-values__header">
-			<strong><?php echo esc_html( WPDF()->text->get( 'fields.validation.heading.text' ) ); ?> <span class="wpdf-tooltip wpdf-tooltip__inline" title="<?php echo esc_attr( WPDF()->text->get( 'fields.validation.heading.help' ) ); ?>">?</span></strong>
+			<strong><?php echo esc_html( FRMK()->text->get( 'fields.validation.heading.text' ) ); ?> <span class="frmk-tooltip frmk-tooltip__inline" title="<?php echo esc_attr( FRMK()->text->get( 'fields.validation.heading.help' ) ); ?>">?</span></strong>
 			</div>
-			<div class="wpdf-repeater-container">
-				<script type="text/html" class="wpdf-repeater-template">
-					<?php wpdf_display_validation_block(); ?>
+			<div class="frmk-repeater-container">
+				<script type="text/html" class="frmk-repeater-template">
+					<?php frmk_display_validation_block(); ?>
 				</script>
 				<?php
 				// load saved validation rules.
@@ -85,17 +85,17 @@ $field_type = $field->get_type();
 					if ( isset( $rules[ $field->get_name() ] ) && ! empty( $rules[ $field->get_name() ] ) ) {
 						foreach ( $rules[ $field->get_name() ] as $rule ) {
 							$type = $rule['type'];
-							wpdf_display_validation_block( $type, $rule );
+							frmk_display_validation_block( $type, $rule );
 						}
 					}
 				}
 				?>
 			</div>
-			<a href="#" class="wpdf-add-row button button-primary"><?php echo esc_html( WPDF()->text->get( 'fields.validation.button.text' ) ); ?></a>
+			<a href="#" class="frmk-add-row button button-primary"><?php echo esc_html( FRMK()->text->get( 'fields.validation.button.text' ) ); ?></a>
 		</div>
 		<?php
 		// add-on fields.
 		?>
-		<div class="wpdf-clear"></div>
+		<div class="frmk-clear"></div>
 	</div>
 </div>

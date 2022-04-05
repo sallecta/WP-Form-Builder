@@ -1,0 +1,773 @@
+.frmk-form-manager{
+    border:1px solid #dedede;
+
+    .frmk-topnav {
+        height: 70px;
+        background: #FFF;
+        width: 100%;
+        border-bottom: 1px solid #dedede;
+    }
+
+    .frmk-notice{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .frmk-clear {
+        clear: both;
+    }
+
+    .frmk-cols {
+        display: table;
+        width: 100%;
+    }
+
+    .frmk-left, .frmk-right {
+        /*float:left;*/
+        min-height: 500px;
+        display: table-cell;
+        vertical-align: top;
+    }
+
+    .frmk-left {
+        background: #f7f7f7;
+        width: 70%;
+    }
+
+    .frmk-right {
+        background: #ececec;
+        width: 30%;
+    }
+
+    .frmk-full {
+        background: #f7f7f7;
+        overflow: hidden;
+    }
+
+    /**
+     * Settings Header
+     */
+    .frmk-topnav {
+        position: relative;
+    }
+
+    .frmk-topnav__logo {
+        height: 70px;
+        width: 150px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+
+        // hide wp notification messages which are applied under h1 in admin section
+        & > div{
+            display: none;
+        }
+
+    }
+
+    .frmk-topnav__logo h1 {
+        font-size: 13px;
+        padding: 0;
+        margin: 0;
+        line-height: 70px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .frmk-topnav__links {
+        list-style: none;
+        padding: 0;
+        margin: 0 160px 0 150px;
+        border-left: 1px solid #dedede;
+        overflow: hidden;
+    }
+
+    .frmk-topnav__links li {
+        display: block;
+        float: left;
+        margin: 0;
+        border-right: 1px solid #dedede;
+    }
+
+    .frmk-topnav__links li a {
+        color: #333333;
+        text-decoration: none;
+        padding: 26px 30px;
+        display: block;
+        background: #ffffff;
+    }
+
+    .frmk-topnav__links li.active a {
+        background: #ececec;
+        color: #000000;
+    }
+
+    .frmk-topnav__links a:focus {
+        outline: none;
+    }
+
+    .frmk-topnav__links a:hover {
+        background: #f7f7f7;
+    }
+
+    .frmk-topnav__actions {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        margin-top: -20px;
+    }
+
+    .frmk-topnav__actions input, .frmk-topnav__actions button, .frmk-topnav__btn {
+        height: 40px;
+        line-height: 40px;
+        font-size: 13px;
+        padding: 0 10px;
+        background: #0085ba;
+        border: 1px solid #0073aa;
+        display: inline-block;
+        -webkit-box-shadow: 0 1px 0 #006799;
+        box-shadow: 0 1px 0 #006799;
+        color: #fff;
+        text-decoration: none;
+        text-shadow: 0 -1px 1px #006799, 1px 0 1px #006799, 0 1px 1px #006799, -1px 0 1px #006799;
+        border: none !important;
+    }
+
+    .frmk-topnav__actions button:hover, .frmk-topnav__actions input:hover{
+        background: #008ec2;
+        border-color: #006799;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .frmk-topnav__btn{
+        $shadow: darken(#ececec, 10%);
+        $lighten: lighten(#ececec, 10%);
+        background: #ececec;
+        color: #000;
+        text-shadow: 0 -1px 1px $lighten, 1px 0 1px $lighten, 0 1px 1px $lighten, -1px 0 1px $lighten;
+        -webkit-box-shadow: 0 1px 0 $shadow;
+        box-shadow: 0 1px 0 $shadow;
+        border-color: $shadow;
+    }
+
+    .frmk-topnav__btn:hover {
+
+        $shadow: darken(#ececec, 5%);
+        $bg: darken(#ececec, 10%);
+        $lighten: lighten(#ececec, 5%);
+
+        background: $bg;
+        border-color: $shadow;
+        cursor: pointer;
+    }
+
+    /**
+     * Sub Header
+     */
+    .frmk-subheader {
+        overflow: hidden;
+        padding: 10px 20px;
+        border-bottom: 1px solid #dedede;
+    }
+
+    .frmk-subheader p {
+        margin: 0;
+        padding: 0;
+    }
+
+    .frmk-subheader__left {
+        float: left;
+    }
+
+    .frmk-subheader__right {
+        float: right;
+    }
+
+    .frmk-subheader__form {
+        font-weight: bold;
+    }
+
+    /**
+     * FRMK Panel
+     */
+    .frmk-panel {
+        background: #f7f7f7;
+    }
+
+    .frmk-panel--active .frmk-panel__content {
+        display: block;
+    }
+
+    .frmk-panel__header {
+        padding: 15px;
+        border-bottom: 1px solid #ececec;
+        position: relative;
+    }
+
+    .frmk-panel__title {
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .frmk-panel__content {
+        display: none;
+        margin: 7px;
+    }
+
+    .frmk-panel--white {
+        background: #ffffff;
+    }
+
+    .frmk-panel--white .frmk-panel__header, .frmk-panel--white.frmk-panel--active {
+        border: 1px solid #ececec;
+    }
+
+    .frmk-panel--white.frmk-panel--active .frmk-panel__header {
+        border-left: none;
+        border-top: none;
+        border-right: none;
+    }
+
+    .frmk-panel--white .frmk-panel__content {
+        margin: 15px;
+    }
+
+    .frmk-right__inside, .frmk-left__inside {
+        margin: 20px;
+    }
+
+    .frmk-field-list {
+        margin: 0 0 7px;
+        padding: 0;
+        list-style: none;
+        overflow: hidden;
+    }
+
+    .frmk-field-list li {
+        margin: 0;
+        padding: 0;
+        width: 50%;
+        float: left;
+    }
+
+    .frmk-field-list a {
+        background: #ececec;
+        padding: 15px 0;
+        margin: 7px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: #444444;
+    }
+
+    .frmk-panel__toggle {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        display: block;
+        width: 48px;
+        margin-right: 0 !important;
+        text-indent: 100%;
+        outline: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        color: #a0a5aa;
+        text-decoration: none;
+    }
+
+    .frmk-panel__toggle:before {
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        right: 0;
+        content: "\f140";
+        border: none;
+        background: 0 0;
+        font: 400 20px/1 dashicons;
+        speak: none;
+        display: block;
+        padding: 0;
+        text-indent: 0;
+        text-align: center;
+        position: relative;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-decoration: none !important;
+        line-height: 48px;
+    }
+
+    .frmk-panel--active .frmk-panel__toggle:before {
+        content: "\f142";
+    }
+
+    .frmk-panel__delete {
+        position: absolute;
+        top: 50%;
+        right: 48px;
+        bottom: 0;
+        display: block;
+        width: auto !important;
+        margin-right: 0 !important;
+        margin-top: -8px;
+        text-indent: 0;
+        outline: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        color: #a0a5aa;
+        text-decoration: none;
+        background: none !important;
+        -webkit-border-radius: 0 !important;
+        -moz-border-radius: 0 !important;
+        border-radius: 0 !important;
+    }
+
+    /**/
+
+    #sortable {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        min-height: 50px;
+    }
+
+    #sortable li {
+        margin: 5px 0;
+        &.placeholder{
+            margin:0;
+            border: 1px dashed #AAA;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+    }
+
+    /*.ui-state-default{
+        background: #999;
+        width: 100%;
+        position: relative;
+    }*/
+    /*.frmk-fields .ui-state-highlight {
+        background: #999999;
+        height: 20px;
+        width: 100%;
+    }*/
+
+    /**
+    **/
+    /*.frmk-fields .frmk-panel{
+        background: #ffffff;
+    }
+    .frmk-fields .frmk-panel__header, .frmk-fields .frmk-panel--active{
+        border: 1px solid #ececec;
+    }
+    .frmk-fields .frmk-panel--active .frmk-panel__header{
+        border-left: none;
+        border-top: none;
+        border-right: none;
+    }
+    .frmk-fields .frmk-panel__content{
+        margin: 15px;
+    }*/
+    /*.frmk-fields .placeholder{
+        border: 1px dashed #999999;
+        padding: 15px;
+    }*/
+
+    /*The element used to show the future position of the item currently being sorted.*/
+    /*.ui-sortable-placeholder{
+        margin: 10px;
+        background: red;
+    }*/
+
+    /*The element shown while dragging a sortable item. The element actually used depends on the*/
+    .ui-sortable-helper {
+        background: yellow;
+        padding: 0;
+        margin: 0;
+    }
+
+    /*The handle of each sortable item, specified using the handle option. By default, each sortable item itself is also the handle.*/
+    /*.ui-sortable-handle{
+        margin: 10px;
+        background: green;
+    }*/
+
+    /*The sortable element.*/
+    .ui-sortable {
+        margin: 10px;
+        background: none;
+    }
+
+    /*.frmk-dropped-item{
+        margin: 10px;
+        background: cyan;
+    }*/
+
+    .sortable-placeholder {
+        height: 30px;
+        border: 1px dashed #b4b9be;
+    }
+
+    /**
+     * Form Fields
+     */
+    .frmk-field-row {
+        width: 104%;
+        clear: both;
+        margin: 0 -2%;
+    }
+
+    .frmk-field-row .frmk-col {
+        float: left;
+        margin-bottom: 10px;
+    }
+
+    .frmk-col.frmk-col--required{
+        input, select, textarea {
+            border: 1px solid red;
+        }
+    }
+
+    .frmk-col.frmk-col__half {
+        width: 46%;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+    .frmk-col.frmk-col__full {
+        width: 96%;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+    .frmk-col .frmk-label {
+        width: 100%;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .frmk-col .frmk-input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .frmk-field__values {
+        background: #f7f7f7;
+    }
+
+    /**
+     * Repeater value field
+     */
+    .frmk-repeater .frmk-repeater-row .frmk-del-row {
+        display: inline-block;
+    }
+
+    /**
+     * Settings Page
+     */
+
+    .frmk-form-table td {
+        vertical-align: top;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .frmk-form-table--style td{
+        vertical-align: middle;
+    }
+
+    .frmk-form-table input[type="text"], .frmk-form-table textarea {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .frmk-settings__header, .frmk-settings__desc {
+        margin-left: 10px;
+    }
+
+    /**
+     * Notifications Page
+     */
+
+    .notification__input {
+        min-width: 320px;
+    }
+
+    .notification__label {
+        min-width: 90px;
+    }
+
+    /**
+     * Field Validation
+     */
+    .frmk-repeater-container {
+        margin-bottom: 10px;
+    }
+
+    .frmk-validation-row {
+        border-bottom: 1px solid #FFFFFF;
+        background: #f7f7f7;
+        padding: 5px;
+    }
+
+    .frmk-validation__selector {
+        margin-bottom: 5px;
+    }
+
+    .field-values__header {
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ececec;
+        padding-bottom: 5px;
+        padding-top: 10px;
+    }
+
+    /**
+     * Table Archive
+     */
+    .frmk-table-archive {
+        padding: 20px;
+    }
+
+    input + .iris-picker {
+        z-index: 100;
+        display: none;
+        position: absolute;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        box-shadow: 0 1px 3px rgba(0,0,0,.2);
+        margin-top: 30px;
+    }
+
+    .frmk-color-pick-preview{
+        width: 30px;
+        height: 30px;
+        display: block;
+        float:left;
+    }
+
+    .frmk-iris-wrap{
+        overflow: hidden;
+    }
+
+    .frmk-color-picker-input{
+        float:left;
+        display: block;
+        width: 80px !important;
+        height: 30px !important;
+    }
+}
+
+.frmk-debug-table{
+    width: 100%;
+    td, th{
+        padding: 10px;
+        text-align: left;
+        border-bottom:1px solid #EEEEEE;
+    }
+    th{
+        width: 190px;
+    }
+    tr:last-child{
+        td,th{
+            border-bottom:none;
+        }
+    }
+}
+
+.frmk-form-create{
+    background: #FFF;
+    border: 1px solid #DDDDDD;
+    padding: 20px;
+
+    h1{
+        margin-top: 0;
+        padding-top:0;
+    }
+
+    .frmk-errors{
+
+        li{
+            background: indianred;
+            color: #FFF;
+            padding: 20px;
+        }
+    }
+}
+
+@media (max-width: 1080px) {
+    .frmk-form-manager {
+        .frmk-topnav__links li a {
+            padding-right: 20px;
+            padding-left: 20px;
+        }
+    }
+}
+
+/**
+ * MCE Editor
+ */
+i.mce-i-frmk {
+    font: 400 20px/1 dashicons;
+    padding: 0 2px 0 0;
+    vertical-align: top;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-left: -2px;
+}
+
+i.mce-i-frmk:before {
+    content: "\f175";
+}
+
+.frmk-dialog{
+    padding: 20px !important;
+
+    #frmk_form_error{
+        padding: 10px;
+        margin-bottom: 10px;
+        background: indianred;
+        color: #FFF;
+    }
+}
+.frmk-dialog-table{
+    width: 100% !important;
+
+    td, th{
+        vertical-align: top;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    th{
+        width: 100px;
+    }
+
+    select, input[type="text"]{
+        width: 100%;
+    }
+}
+.frmk-dialog-loading{
+    text-align: center !important;
+    padding: 20px !important;
+}
+
+/**
+ * Tooltips
+ */
+
+.frmk-tooltip {
+    width: 16px;
+    height: 16px;
+    border-radius: 16px;
+    background: #dedede;
+    color: #333;
+    display: inline-block;
+    line-height: 16px;
+    text-align: center;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.frmk-tooltip__inline {
+    margin-left: 5px;
+}
+
+.frmk-tooltip__wrapper .frmk-tooltip {
+    position: absolute;
+    right: 0;
+    top: 4px;
+}
+
+.frmk-tooltip:hover {
+    cursor: pointer;
+}
+
+.frmk-tooltip__wrapper {
+    position: relative;
+}
+
+.frmk-form-table td.frmk-tooltip__wrapper {
+    padding-right: 25px;
+}
+
+#tiptip_holder {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999999;
+}
+
+#tiptip_holder.tip_top {
+    padding-bottom: 5px;
+}
+
+#tiptip_holder.tip_top #tiptip_arrow_inner {
+    margin-top: -7px;
+    margin-left: -6px;
+    border-top-color: #333;
+}
+
+#tiptip_holder.tip_bottom {
+    padding-top: 5px;
+}
+
+#tiptip_holder.tip_bottom #tiptip_arrow_inner {
+    margin-top: -5px;
+    margin-left: -6px;
+    border-bottom-color: #333;
+}
+
+#tiptip_holder.tip_right {
+    padding-left: 5px;
+}
+
+#tiptip_holder.tip_right #tiptip_arrow_inner {
+    margin-top: -6px;
+    margin-left: -5px;
+    border-right-color: #333;
+}
+
+#tiptip_holder.tip_left {
+    padding-right: 5px;
+}
+
+#tiptip_holder.tip_left #tiptip_arrow_inner {
+    margin-top: -6px;
+    margin-left: -7px;
+    border-left-color: #333;
+}
+
+#tiptip_content,
+.chart-tooltip,
+.wc_error_tip {
+    color: #fff;
+    font-size: .8em;
+    max-width: 150px;
+    background: #333;
+    text-align: center;
+    border-radius: 3px;
+    padding: .618em 1em;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+#tiptip_content code,
+.chart-tooltip code,
+.wc_error_tip code {
+    padding: 1px;
+    background: #888;
+}
+
+#tiptip_arrow,
+#tiptip_arrow_inner {
+    position: absolute;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 6px;
+    height: 0;
+    width: 0;
+}
+

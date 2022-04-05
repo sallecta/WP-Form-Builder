@@ -2,9 +2,9 @@
 /**
  * Form notifications page
  *
- * @var WPDF_Form $form
+ * @var FRMK_Form $form
  *
- * @package WPDF/Admin
+ * @package FRMK/Admin
  * @author James Collings
  * @created 12/10/2016
  */
@@ -39,45 +39,45 @@ $notifications     = isset( $settings['notifications'] ) && ! empty( $settings['
 ?>
 <form action="" method="post">
 
-	<input type="hidden" name="wpdf-action" value="edit-form-notifications"/>
-	<input type="hidden" name="wpdf-form" value="<?php echo esc_attr( $form_id ); ?>"/>
-	<div class="wpdf-form-manager wpdf-form-manager--inputs">
+	<input type="hidden" name="frmk-action" value="edit-form-notifications"/>
+	<input type="hidden" name="frmk-form" value="<?php echo esc_attr( $form_id ); ?>"/>
+	<div class="frmk-form-manager frmk-form-manager--inputs">
 
 		<?php $this->display_form_header( 'notifications', $form ); ?>
 
-		<div class="wpdf-cols">
+		<div class="frmk-cols">
 
-			<div class="wpdf-full">
+			<div class="frmk-full">
 
-				<div class="wpdf-left__inside  wpdf-repeater" data-min="0" data-template-name="notification_repeater"
+				<div class="frmk-left__inside  frmk-repeater" data-min="0" data-template-name="notification_repeater"
 				     data-template-index="notification\[[0-9]*\]" data-template-prefix="notification">
 
 					<div id="error-wrapper">
 						<?php
 						if ( $this->get_success() > 0 ) {
 							?>
-							<p class="notice notice-success wpdf-notice wpdf-notice--success"><?php echo esc_html( WPDF()->text->get( 'form_saved', 'general' ) ); ?></p>
+							<p class="notice notice-success frmk-notice frmk-notice--success"><?php echo esc_html( FRMK()->text->get( 'form_saved', 'general' ) ); ?></p>
 							<?php
 						}
 						?>
 					</div>
 
-					<ul class="wpdf-notifications wpdf-repeater-container">
-						<script type="text/html" class="wpdf-repeater-template">
-							<?php wpdf_display_notification_settings( $blank_notification, '', $field_keys ); ?>
+					<ul class="frmk-notifications frmk-repeater-container">
+						<script type="text/html" class="frmk-repeater-template">
+							<?php frmk_display_notification_settings( $blank_notification, '', $field_keys ); ?>
 						</script>
 						<?php foreach ( $notifications as $i => $notification ) : ?>
-							<?php wpdf_display_notification_settings( $notification, $i, $field_keys ); ?>
+							<?php frmk_display_notification_settings( $notification, $i, $field_keys ); ?>
 						<?php endforeach; ?>
 					</ul>
 
-					<a href="#" class="wpdf-add-row button button-primary">Add Notification</a>
+					<a href="#" class="frmk-add-row button button-primary">Add Notification</a>
 					&nbsp;
 				</div>
 			</div>
 
 		</div>
 
-		<div class="wpdf-clear"></div>
+		<div class="frmk-clear"></div>
 	</div>
 </form>

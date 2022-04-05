@@ -1,0 +1,217 @@
+// =====================================
+// Layout CSS
+// =====================================
+
+.frmk-form.frmk-form__layout{
+
+    $spacing: 1em;
+    $choice-spacing: 1em;
+    $form-padding: 1em;
+    $message-spacing: 1em;
+
+    padding: $form-padding;
+
+    .frmk-form-title{
+        margin: 0;
+        padding: 0;
+
+        h1{
+            margin: 0 0 1em;
+            padding: 0;
+        }
+    }
+    .frmk-form-copy{
+        p{
+            margin: 0 0 1em;
+            padding: 0;
+        }
+    }
+
+    .frmk-form-error, .frmk-form-confirmation{
+        padding: $message-spacing $message-spacing 0;
+        margin-bottom:$spacing;
+        overflow: hidden;
+
+        p, li, ul{
+            margin: 0 0 $message-spacing;
+        }
+
+        ul{
+            li:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .frmk-form-errors{
+        list-style: none;
+    }
+
+    .frmk-choices {
+        label {
+            margin-right: $choice-spacing;
+            display: inline-block;
+        }
+        input{
+            margin-right: 0.5em;
+        }
+    }
+
+    .frmk-input-select, .frmk-input-textarea, .frmk-input-text {
+        .frmk-field {
+            width: 100%;
+        }
+    }
+
+    .frmk-form-row {
+        margin-bottom: $spacing;
+        width: 100%;
+        clear: left;
+
+        // two column layout
+        &.frmk-half-col, &.frmk-half-col-last{
+            width: 48%;
+            clear: none;
+            float:left;
+        }
+        &.frmk-half-col{
+            margin-right: 4%;
+        }
+        &.frmk-half-col-last{
+            margin-right: 0;
+        }
+    }
+
+    .frmk-spinner {
+        background: url('/wp-admin/images/wpspin_light.gif') no-repeat;
+        background-size: 16px 16px;
+        display: none;
+        opacity: .7;
+        filter: alpha(opacity=70);
+        width: 16px;
+        height: 16px;
+        margin: 5px 5px 0;
+    }
+
+    &.frmk-ajax-loading{
+        .frmk-spinner {
+            display: inline-block;
+        }
+    }
+}
+
+.frmk-form {
+    // ========================================
+    // jQuery UI Slider
+    // ========================================
+
+    .ui-slider {
+        position: relative;
+        text-align: left;
+
+        label {
+            position: absolute;
+            width: 20px;
+            margin-top: 20px;
+            margin-left: -10px;
+            text-align: center;
+        }
+    }
+    .ui-slider .ui-slider-handle {
+        position: absolute;
+        z-index: 2;
+        width: 1.2em;
+        height: 1.2em;
+        cursor: default;
+    }
+    .ui-slider .ui-slider-range {
+        position: absolute;
+        z-index: 1;
+        font-size: .7em;
+        display: block;
+        border: 0;
+        background-position: 0 0;
+    }
+
+    .ui-slider-horizontal {
+        height: .8em;
+    }
+    .ui-slider-horizontal .ui-slider-handle {
+        top: -.3em;
+        margin-left: -.6em;
+    }
+    .ui-slider-horizontal .ui-slider-range {
+        top: 0;
+        height: 100%;
+    }
+    .ui-slider-horizontal .ui-slider-range-min {
+        left: 0;
+    }
+    .ui-slider-horizontal .ui-slider-range-max {
+        right: 0;
+    }
+
+    .ui-slider-vertical {
+        width: .8em;
+        height: 100px;
+    }
+    .ui-slider-vertical .ui-slider-handle {
+        left: -.3em;
+        margin-left: 0;
+        margin-bottom: -.6em;
+    }
+    .ui-slider-vertical .ui-slider-range {
+        left: 0;
+        width: 100%;
+    }
+    .ui-slider-vertical .ui-slider-range-min {
+        bottom: 0;
+    }
+    .ui-slider-vertical .ui-slider-range-max {
+        top: 0;
+    }
+
+    .ui-slider-handle {
+        background: #8a8a8a;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .ui-slider {
+        background: #EEEEEE;
+        margin-bottom:50px;
+        margin-top: 10px;
+    }
+
+    .ui-slider-range {
+        background: #616161;
+    }
+
+    .jcpf_price_slider_max {
+        float: right;
+    }
+}
+
+.frmk-number--range {
+    &.input-range {
+        .frmk-field{
+            width:40%;
+        }
+        .frmk-range-text{
+            margin-left:10px;
+            margin-right:10px;
+        }
+    }
+}
+
+@media screen and (max-height: 575px){
+    .frmk-form {
+        #rc-imageselect, .g-recaptcha {
+            transform: scale(0.77);
+            -webkit-transform: scale(0.77);
+            transform-origin: 0 0;
+            -webkit-transform-origin: 0 0;
+        }
+    }
+}

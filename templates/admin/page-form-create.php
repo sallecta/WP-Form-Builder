@@ -2,9 +2,9 @@
 /**
  * Create new form screen
  *
- * @var WPDF_Admin $this
+ * @var FRMK_Admin $this
  *
- * @package WPDF/Admin
+ * @package FRMK/Admin
  * @author James Collings
  * @created 21/11/2016
  */
@@ -15,13 +15,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $form_name = isset( $_POST['form-name'] ) ? sanitize_text_field( $_POST['form-name'] ) : '';
 ?>
-<div class="wpdf-form-create">
-	<h1>WP Form Builder</h1>
+<div class="frmk-form-create">
+	<h1>FrMk: Add new  form</h1>
 
 	<?php
 	if ( $this->has_errors() ) {
 		$errors = $this->get_errors();
-		echo '<ul class="wpdf-errors">';
+		echo '<ul class="frmk-errors">';
 		foreach ( $errors as $error ) {
 			echo '<li>' . esc_html( $error ) . '</li>';
 		}
@@ -31,7 +31,7 @@ $form_name = isset( $_POST['form-name'] ) ? sanitize_text_field( $_POST['form-na
 
 	<form action="" method="post">
 
-		<input type="hidden" name="wpdf-action" value="create-form"/>
+		<input type="hidden" name="frmk-action" value="create-form"/>
 
 		<h2>Form Details</h2>
 		<label for="form-name">Name</label>

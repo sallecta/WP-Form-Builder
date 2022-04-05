@@ -2,7 +2,7 @@
 /**
  * Plugin Settings Page
  *
- * @package WPDF/Admin
+ * @package FRMK/Admin
  * @author James Collings
  * @created 30/11/2016
  */
@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$debug_info = array(
 			'General' => array(
 				'WordPress version' => get_bloginfo( 'version' ),
-				'Plugin version' => WPDF()->get_version(),
+				'Plugin version' => FRMK()->get_version(),
 				'Php version' => phpversion(),
 				'Max execution time' => ini_get( 'max_execution_time' ),
 				'Max input time' => ini_get( 'max_input_time' ),
@@ -33,13 +33,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'File Upload' => array(
 				'Post max size' => ini_get( 'post_max_size' ),
 				'Upload max filesize' => ini_get( 'upload_max_filesize' ),
-				'Upload directory' => wpdf_get_uploads_dir(),
-				'Upload directory writable' => true === is_writable( wpdf_get_uploads_dir() ) ? 'yes' : 'no',
+				'Upload directory' => frmk_get_uploads_dir(),
+				'Upload directory writable' => true === is_writable( frmk_get_uploads_dir() ) ? 'yes' : 'no',
 			),
 		);
 
 		// dislay list of addons
-		$modules = WPDF()->get_modules();
+		$modules = FRMK()->get_modules();
 		if ( ! empty( $modules ) ) {
 			$rows = array();
 			foreach ( $modules as $module ) {
@@ -60,7 +60,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<h2 class="hndle ui-sortable-handle">
 					<span><?php echo esc_html( $section ); ?></span>
 				</h2>
-				<table class="wpdf-debug-table" cellpadding="0" cellspacing="0">
+				<table class="frmk-debug-table" cellpadding="0" cellspacing="0">
 					<?php
 					$i = 0;
 					foreach ( $section_data as $heading => $content  ) : $i++; ?>

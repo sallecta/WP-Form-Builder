@@ -1,7 +1,1 @@
 /.idea
-node_modules/*
-build/*
-README.html
-tmp/*
-assets/**/*.min.js
-assets/**/*.css

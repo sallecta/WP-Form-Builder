@@ -45,7 +45,7 @@
 
     function init_field_conditions(event, form){
 
-        var _forms = $('.wpdf-form');
+        var _forms = $('.frmk-form');
 
         if(form != undefined){
             _forms = form;
@@ -55,11 +55,11 @@
             var _form = $(this);
 
             // process display data
-            var _wpdf_display = _form.data('wpdf-display');
-            if(_wpdf_display !== undefined){
+            var _frmk_display = _form.data('frmk-display');
+            if(_frmk_display !== undefined){
 
-                _form.on('input change wpdf_display_check', 'input, select', function(){
-                    $.each(_wpdf_display, function(key, conditionArr){
+                _form.on('input change frmk_display_check', 'input, select', function(){
+                    $.each(_frmk_display, function(key, conditionArr){
 
                         // find either multiple element "name[]", or single element "name"
                         var _elem = _form.find('[name="'+key+'[]"],[name="'+key+'"]');
@@ -72,21 +72,21 @@
                 } );
 
                 // trigger conditional check on all inputs
-                _form.find('input, select').trigger('wpdf_display_check');
+                _form.find('input, select').trigger('frmk_display_check');
             }
         })
     }
 
-    $('body').on('wpdf_form_init', init_field_conditions);
+    $('body').on('frmk_form_init', init_field_conditions);
 
 })(jQuery);
 
 (function($){
 
     function init_range_sliders(event, form){
-        var _number_fields = $('.wpdf-input-number');
+        var _number_fields = $('.frmk-input-number');
         if(form != undefined){
-            form.find('.wpdf-input-number');
+            form.find('.frmk-input-number');
         }
 
         if(_number_fields.length == 0){
@@ -95,7 +95,7 @@
 
         _number_fields.each(function(){
 
-            var _slider = $(this).find('.wpdf-range-slider');
+            var _slider = $(this).find('.frmk-range-slider');
             if(_slider.length > 0){
                 var _min = _slider.data('min');
                 var _max = _slider.data('max');
@@ -165,13 +165,13 @@
         });
     }
 
-    $('body').on('wpdf_form_init', init_range_sliders);
+    $('body').on('frmk_form_init', init_range_sliders);
 
 })(jQuery);
 
 (function($){
 
-    function wpdf_ajax_form($form)
+    function frmk_ajax_form($form)
     {
         var id = $form.attr('id');
         var iframe;
@@ -179,9 +179,9 @@
         if (!$form.attr('target'))
         {
             //create a unique iframe for the form
-            iframe = $("<iframe></iframe>").attr('name', 'wpdf_ajax_form_' + Math.floor(Math.random() * 999999)).hide().appendTo($('body'));
+            iframe = $("<iframe></iframe>").attr('name', 'frmk_ajax_form_' + Math.floor(Math.random() * 999999)).hide().appendTo($('body'));
             $form.attr('target', iframe.attr('name'));
-            $form.append('<input type="hidden" name="wpdf_ajax" value="iframe" />');
+            $form.append('<input type="hidden" name="frmk_ajax" value="iframe" />');
         }
 
         iframe = iframe || $('iframe[name=" ' + $form.attr('target') + ' "]');
@@ -199,8 +199,8 @@
                 $form = $('#' + id);
 
                 $form.attr('target', iframe.attr('name'));
-                $form.append('<input type="hidden" name="wpdf_ajax" value="iframe" />');
-                $('body').trigger('wpdf_form_init',[ $form ]);
+                $form.append('<input type="hidden" name="frmk_ajax" value="iframe" />');
+                $('body').trigger('frmk_form_init',[ $form ]);
 
             }else{
 
@@ -212,7 +212,7 @@
 
                     $form.replaceWith( json.message );
                     $form.attr('target', iframe.attr('name'));
-                    $form.append('<input type="hidden" name="wpdf_ajax" value="iframe" />');
+                    $form.append('<input type="hidden" name="frmk_ajax" value="iframe" />');
                 }
             }
 
@@ -224,13 +224,13 @@
      */
     $(document).ready(function(){
 
-        $('.wpdf-form__ajax').each(function(){
-            wpdf_ajax_form($(this));
+        $('.frmk-form__ajax').each(function(){
+            frmk_ajax_form($(this));
         });
 
-        $('body').on('submit', '.wpdf-form__ajax', function(){
-            $(this).addClass('wpdf-ajax-loading');
-            $(this).find('.wpdf-submit-button').prop('disabled', true);
+        $('body').on('submit', '.frmk-form__ajax', function(){
+            $(this).addClass('frmk-ajax-loading');
+            $(this).find('.frmk-submit-button').prop('disabled', true);
         });
     });
 
@@ -240,7 +240,7 @@
 
     // initialize forms
     $(document).ready(function(){
-        $('body').trigger('wpdf_form_init');
+        $('body').trigger('frmk_form_init');
     });
 
 })(jQuery);
